@@ -56,7 +56,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Regular user welcome message
         text = (
             "👋 *Welcome to the Link Scraper Bot*\!\n\n"
-            "This bot automatically posts new torrent links into our channels\.\n\n"
+            "This bot automatically posts new file links into our channels\.\n\n"
             "Check out our channels below to get the latest updates\!"
         )
     await update.message.reply_text(text, reply_markup=keyboard, parse_mode='MarkdownV2')
@@ -97,7 +97,7 @@ async def test_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 f"Content hash: `{content_hash}`\n"
                 f"Quality tags: {', '.join(quality_tags) if quality_tags else 'None'}\n"
                 f"Languages: {', '.join(meta.get('language_tags', [])) if meta.get('language_tags') else 'None'}\n"
-                f"Sizes: {', '.join(str(s) + 'MB' for s in meta.get('file_sizes', [])) if meta.get('file_sizes') else 'None'}\nSending links now..."
+                f"Sizes: {', '.join(str(s) + 'MB' for s in meta.get('file_sizes', [])) if meta.get('file_sizes') else 'None'}\nSending file links now..."
             ),
             parse_mode='MarkdownV2'
         )
