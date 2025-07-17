@@ -1,0 +1,13 @@
+
+
+# ==============================================================================
+# File: link-scraper-bot/.gitignore
+# Description: Specifies files to be ignored by Git.
+# ==============================================================================
+
+# Environments
+.env
+.venv
+venv/
+__pycache__/
+*.pyc

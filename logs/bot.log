@@ -1,0 +1,239 @@
+2025-07-17 21:49:53 | INFO     | core.logger:setup_logger:26 - Logger has been configured.
+2025-07-17 21:49:54 | CRITICAL | __main__:main:28 - A critical error occurred: no running event loop
+2025-07-17 21:54:34 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 21:54:36 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 21:54:36 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 21:56:56 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 21:59:10 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 21:59:11 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 21:59:11 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 21:59:44 | INFO     | database.mongo_db:get_client:18 - Initializing MongoDB client...
+2025-07-17 22:04:52 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:04:55 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:04:56 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:04:56 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:05:00 | INFO     | database.mongo_db:get_client:18 - Initializing MongoDB client...
+2025-07-17 22:08:31 | INFO     | scraper.engine:scrape_post:78 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:08:31 | ERROR    | scraper.engine:_fetch_page:35 - An unexpected error occurred during fetch: AsyncClient.__init__() got an unexpected keyword argument 'proxies'
+2025-07-17 22:08:39 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:09:09 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:09:10 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:09:10 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:09:14 | INFO     | database.mongo_db:get_client:18 - Initializing MongoDB client...
+2025-07-17 22:11:21 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:11:24 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:11:26 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:11:26 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:11:30 | INFO     | database.mongo_db:get_client:18 - Initializing MongoDB client...
+2025-07-17 22:11:34 | INFO     | bot.handlers:forwarded_message_handler:99 - Admin forwarded a message from channel 'HD Cenima Feeds' (-1002899683967) for authorization check.
+2025-07-17 22:11:34 | INFO     | bot.handlers:forwarded_message_handler:105 - Bot is an administrator in 'HD Cenima Feeds'. Sending approval request.
+2025-07-17 22:11:42 | INFO     | database.mongo_db:add_channel:36 - Added/Updated channel: HD Cenima Feeds (-1002899683967). Main: True
+2025-07-17 22:12:33 | INFO     | scraper.engine:scrape_post:78 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:12:33 | ERROR    | scraper.engine:_fetch_page:35 - An unexpected error occurred during fetch: AsyncClient.__init__() got an unexpected keyword argument 'proxies'
+2025-07-17 22:12:44 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:15:48 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:15:50 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:15:50 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:16:01 | INFO     | scraper.engine:scrape_post:93 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:16:01 | ERROR    | scraper.engine:_fetch_page:37 - An unexpected error occurred during fetch for https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/: 'HTTPTransport' object has no attribute '__aenter__'
+2025-07-17 22:16:12 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:17:11 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:17:13 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:17:13 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:17:18 | INFO     | scraper.engine:scrape_post:93 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:17:18 | ERROR    | scraper.engine:_fetch_page:37 - An unexpected error occurred during fetch for https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/: AsyncClient.__init__() got an unexpected keyword argument 'proxies'
+2025-07-17 22:18:32 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:18:34 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:18:36 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:18:36 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:18:42 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:18:45 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 22:19:04 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:21:01 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:21:03 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:21:03 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:21:09 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:21:11 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 22:22:43 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:22:46 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:22:47 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:22:47 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:22:56 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:22:59 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 22:22:59 | ERROR    | bot.messages:format_and_send_links:45 - Failed to send header message to 1764208280: Can't parse entities: character '#' is reserved and must be escaped with the preceding '\'
+2025-07-17 22:23:20 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:24:36 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:24:37 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:24:37 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:24:45 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:24:48 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 22:24:50 | ERROR    | bot.messages:format_and_send_links:66 - Failed to send link message for 'Timeline (2003) BluRay - 1080p - x264 - (DD+5.1 - 640Kbps) [Tamil + Telugu + Hindi + Eng] - 3.7GB - ESub (Magnet)' to 1764208280: Message is too long
+2025-07-17 22:24:51 | ERROR    | bot.messages:format_and_send_links:66 - Failed to send link message for 'Timeline (2003) BluRay - 720p - x264 - (DD+5.1 - 192Kbps) [Tamil + Telugu + Hindi + Eng] - 1.4GB - ESub (Magnet)' to 1764208280: Message is too long
+2025-07-17 22:24:52 | ERROR    | bot.messages:format_and_send_links:66 - Failed to send link message for 'Timeline (2003) BR-Rip - x264 - [Tamil + Telugu + Hindi] - 450MB - ESub (Magnet)' to 1764208280: Message is too long
+2025-07-17 22:28:17 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:28:20 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:28:22 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:28:22 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:28:41 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:28:43 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 22:28:45 | WARNING  | bot.messages:format_and_send_links:63 - Link for 'Timeline (2003) BluRay - 1080p - x264 - (DD+5.1 - 640Kbps) [Tamil + Telugu + Hindi + Eng] - 3.7GB - ESub (Magnet)' is too long to send as a message. Sending as a document.
+2025-07-17 22:28:46 | ERROR    | bot.messages:format_and_send_links:94 - Failed to send link message for 'Timeline (2003) BluRay - 1080p - x264 - (DD+5.1 - 640Kbps) [Tamil + Telugu + Hindi + Eng] - 3.7GB - ESub (Magnet)' to 1764208280: Can't parse entities: character '.' is reserved and must be escaped with the preceding '\'
+2025-07-17 22:28:47 | WARNING  | bot.messages:format_and_send_links:63 - Link for 'Timeline (2003) BluRay - 720p - x264 - (DD+5.1 - 192Kbps) [Tamil + Telugu + Hindi + Eng] - 1.4GB - ESub (Magnet)' is too long to send as a message. Sending as a document.
+2025-07-17 22:28:47 | ERROR    | bot.messages:format_and_send_links:94 - Failed to send link message for 'Timeline (2003) BluRay - 720p - x264 - (DD+5.1 - 192Kbps) [Tamil + Telugu + Hindi + Eng] - 1.4GB - ESub (Magnet)' to 1764208280: Can't parse entities: character '.' is reserved and must be escaped with the preceding '\'
+2025-07-17 22:28:48 | WARNING  | bot.messages:format_and_send_links:63 - Link for 'Timeline (2003) BR-Rip - x264 - [Tamil + Telugu + Hindi] - 450MB - ESub (Magnet)' is too long to send as a message. Sending as a document.
+2025-07-17 22:28:48 | ERROR    | bot.messages:format_and_send_links:94 - Failed to send link message for 'Timeline (2003) BR-Rip - x264 - [Tamil + Telugu + Hindi] - 450MB - ESub (Magnet)' to 1764208280: Can't parse entities: character '.' is reserved and must be escaped with the preceding '\'
+2025-07-17 22:31:02 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:31:05 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:31:06 | INFO     | scraper.scheduler:setup_scheduler:75 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:31:06 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:31:18 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:31:20 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 22:31:22 | INFO     | bot.messages:format_and_send_links:58 - Skipping magnet link: Timeline (2003) BluRay - 1080p - x264 - (DD+5.1 - 640Kbps) [Tamil + Telugu + Hindi + Eng] - 3.7GB - ESub (Magnet)
+2025-07-17 22:31:23 | INFO     | bot.messages:format_and_send_links:58 - Skipping magnet link: Timeline (2003) BluRay - 720p - x264 - (DD+5.1 - 192Kbps) [Tamil + Telugu + Hindi + Eng] - 1.4GB - ESub (Magnet)
+2025-07-17 22:31:24 | INFO     | bot.messages:format_and_send_links:58 - Skipping magnet link: Timeline (2003) BR-Rip - x264 - [Tamil + Telugu + Hindi] - 450MB - ESub (Magnet)
+2025-07-17 22:38:48 | INFO     | database.mongo_db:get_client:18 - Initializing MongoDB client...
+2025-07-17 22:39:24 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:39:27 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:39:29 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:39:29 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:39:38 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 22:39:40 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 22:40:34 | INFO     | database.mongo_db:get_client:18 - Initializing MongoDB client...
+2025-07-17 22:44:29 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:44:32 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:44:34 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:44:34 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:46:51 | INFO     | database.mongo_db:get_client:18 - Initializing MongoDB client...
+2025-07-17 22:52:11 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:52:14 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:52:16 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:52:16 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:52:22 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 22:53:10 | INFO     | bot.prefix_handler:set_prefix_command:21 - Admin set a new prefix: /ql
+2025-07-17 22:53:32 | INFO     | bot.prefix_handler:toggle_prefix_command:33 - Admin ENABLED the prefix feature.
+2025-07-17 22:57:17 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 22:57:27 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 22:57:28 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 22:57:28 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 22:57:46 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 22:58:27 | INFO     | bot.handlers:text_message_handler:143 - Admin set new prefix via text message: hi
+2025-07-17 22:59:00 | INFO     | bot.handlers:text_message_handler:143 - Admin set new prefix via text message: / ql
+2025-07-17 23:01:44 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:01:47 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:01:48 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:01:48 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:01:53 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:02:19 | INFO     | bot.handlers:text_message_handler:147 - Admin set new prefix via reply: b
+2025-07-17 23:02:34 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 23:02:37 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 23:04:50 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:04:53 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:04:55 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:04:55 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:04:57 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:05:09 | INFO     | bot.handlers:text_message_handler:147 - Admin set new prefix via reply: /ql
+2025-07-17 23:05:29 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 23:05:31 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 23:09:00 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:09:02 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:09:04 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:09:04 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:09:17 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 23:09:26 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 23:09:27 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:11:48 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:11:51 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:11:53 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:11:53 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:12:13 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/65428-timeline-2003-bluray-original-audios-1080p-720p-x264-dd51-640kbps-tamil-telugu-hindi-eng-37gb-14gb-x264-tam-tel-hin-450mb-esub/
+2025-07-17 23:12:15 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 6 links from post.
+2025-07-17 23:12:16 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:13:32 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/190539-asthra-2023-malayalam-true-web-dl-1080p-720p-avc-dd51-384kbps-29gb-13gb-x264-700mb-400mb/
+2025-07-17 23:13:45 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 0 links from post.
+2025-07-17 23:14:37 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/190539-asthra-2023-malayalam-true-web-dl-1080p-720p-avc-dd51-384kbps-29gb-13gb-x264-700mb-400mb/
+2025-07-17 23:14:39 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 0 links from post.
+2025-07-17 23:16:12 | INFO     | scraper.engine:scrape_post:91 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/190441-my-eyes-are-full-of-you-2025-s01-ep-01-24-true-web-dl-1080p-720p-avc-tamil-telugu-hindi-aac-20-75gb-25gb-esub/
+2025-07-17 23:16:16 | INFO     | scraper.engine:_parse_links:86 - Successfully parsed 0 links from post.
+2025-07-17 23:19:18 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:19:21 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:19:23 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:19:23 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:19:33 | INFO     | scraper.engine:scrape_post:71 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/190441-my-eyes-are-full-of-you-2025-s01-ep-01-24-true-web-dl-1080p-720p-avc-tamil-telugu-hindi-aac-20-75gb-25gb-esub/
+2025-07-17 23:19:37 | INFO     | scraper.engine:_parse_links:66 - Successfully parsed 2 .torrent links from post.
+2025-07-17 23:19:38 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:20:04 | INFO     | scraper.engine:scrape_post:71 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/190539-asthra-2023-malayalam-true-web-dl-1080p-720p-avc-dd51-384kbps-29gb-13gb-x264-700mb-400mb/
+2025-07-17 23:20:06 | INFO     | scraper.engine:_parse_links:66 - Successfully parsed 4 .torrent links from post.
+2025-07-17 23:21:11 | INFO     | scraper.engine:scrape_post:71 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:21:15 | INFO     | scraper.engine:_parse_links:66 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:26:02 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:26:05 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:26:07 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:26:07 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:26:20 | INFO     | scraper.engine:scrape_post:89 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:26:26 | INFO     | scraper.engine:_parse_links:81 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:26:26 | INFO     | scraper.engine:_parse_links:83 - Found quality tags: ['#HDRip']
+2025-07-17 23:28:53 | INFO     | scraper.engine:scrape_post:89 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:28:55 | INFO     | scraper.engine:_parse_links:81 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:28:55 | INFO     | scraper.engine:_parse_links:83 - Found quality tags: ['#HDRip']
+2025-07-17 23:29:31 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:29:34 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:29:35 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:29:35 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:29:42 | INFO     | scraper.engine:scrape_post:89 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:29:45 | INFO     | scraper.engine:_parse_links:81 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:29:45 | INFO     | scraper.engine:_parse_links:83 - Found quality tags: ['#HDRip']
+2025-07-17 23:31:54 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:31:57 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:31:59 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:31:59 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:32:10 | INFO     | scraper.engine:scrape_post:123 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:32:12 | INFO     | scraper.engine:_parse_links:109 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:32:12 | INFO     | scraper.engine:_parse_links:116 - Found quality tags: ['#1080p', '#HDRip', '#720p']
+2025-07-17 23:32:12 | INFO     | scraper.engine:_parse_links:118 - Found language tags: ['Tamil', 'Malayalam', 'Kannada', 'Telugu']
+2025-07-17 23:33:27 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:33:30 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:33:31 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:33:31 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:33:38 | INFO     | scraper.engine:scrape_post:123 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:33:40 | INFO     | scraper.engine:_parse_links:109 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:33:40 | INFO     | scraper.engine:_parse_links:116 - Found quality tags: ['#1080p', '#720p', '#HDRip']
+2025-07-17 23:33:40 | INFO     | scraper.engine:_parse_links:118 - Found language tags: ['Kannada', 'Malayalam', 'Telugu', 'Tamil']
+2025-07-17 23:34:33 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:34:37 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:34:39 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:34:39 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:34:46 | INFO     | scraper.engine:scrape_post:123 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:34:49 | INFO     | scraper.engine:_parse_links:109 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:34:49 | INFO     | scraper.engine:_parse_links:116 - Found quality tags: ['#720p', '#1080p', '#HDRip']
+2025-07-17 23:34:49 | INFO     | scraper.engine:_parse_links:118 - Found language tags: ['Kannada', 'Telugu', 'Tamil', 'Malayalam']
+2025-07-17 23:35:32 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:35:34 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:35:36 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:35:36 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:35:43 | INFO     | scraper.engine:scrape_post:123 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/183735-devara-2024-telugu-true-web-dl-1080p-720p-avc-hevc-dd51-640kbps-13gb-26gb-14gb-850mb-x264-700mb-400mb-250mb-esub/
+2025-07-17 23:35:46 | INFO     | scraper.engine:_parse_links:109 - Successfully parsed 8 .torrent links from post.
+2025-07-17 23:35:46 | INFO     | scraper.engine:_parse_links:116 - Found quality tags: ['#1080p', '#HDRip', '#720p']
+2025-07-17 23:35:46 | INFO     | scraper.engine:_parse_links:118 - Found language tags: ['Malayalam', 'Telugu', 'Tamil', 'Kannada']
+2025-07-17 23:35:47 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:42:17 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:43:31 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:43:32 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:43:32 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:44:09 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:44:44 | INFO     | bot.handlers:wrapper:133 - Outgoing message: status_command args=(Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Monster', id=1764208280, last_name='X', type=<ChatType.PRIVATE>, username='monsterx_1'), date=datetime.datetime(2025, 7, 17, 18, 14, 41, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=7, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='Monster', id=1764208280, is_bot=False, language_code='en', last_name='X', username='monsterx_1'), group_chat_created=False, message_id=337, supergroup_chat_created=False, text='/status'), update_id=340750164), <telegram.ext._callbackcontext.CallbackContext object at 0x000001F994A0B0E0>) kwargs={}
+2025-07-17 23:45:01 | INFO     | bot.handlers:wrapper:133 - Outgoing message: stats_command args=(Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Monster', id=1764208280, last_name='X', type=<ChatType.PRIVATE>, username='monsterx_1'), date=datetime.datetime(2025, 7, 17, 18, 14, 58, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=6, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='Monster', id=1764208280, is_bot=False, language_code='en', last_name='X', username='monsterx_1'), group_chat_created=False, message_id=339, supergroup_chat_created=False, text='/stats'), update_id=340750165), <telegram.ext._callbackcontext.CallbackContext object at 0x000001F994563E70>) kwargs={}
+2025-07-17 23:45:26 | INFO     | bot.handlers:wrapper:133 - Outgoing message: log_command args=(Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Monster', id=1764208280, last_name='X', type=<ChatType.PRIVATE>, username='monsterx_1'), date=datetime.datetime(2025, 7, 17, 18, 15, 24, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=4, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='Monster', id=1764208280, is_bot=False, language_code='en', last_name='X', username='monsterx_1'), group_chat_created=False, message_id=341, supergroup_chat_created=False, text='/log'), update_id=340750166), <telegram.ext._callbackcontext.CallbackContext object at 0x000001F994A0B380>) kwargs={}
+2025-07-17 23:46:46 | INFO     | __main__:<module>:43 - Bot stopped manually.
+2025-07-17 23:46:49 | INFO     | core.logger:setup_logger:28 - Logger has been configured.
+2025-07-17 23:46:51 | INFO     | scraper.scheduler:setup_scheduler:84 - Scheduler started. Website will be checked every 15 minutes.
+2025-07-17 23:46:51 | INFO     | __main__:main:26 - Starting bot polling...
+2025-07-17 23:47:13 | INFO     | bot.handlers:wrapper:133 - Outgoing message: status_command args=(Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Monster', id=1764208280, last_name='X', type=<ChatType.PRIVATE>, username='monsterx_1'), date=datetime.datetime(2025, 7, 17, 18, 17, 10, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=7, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='Monster', id=1764208280, is_bot=False, language_code='en', last_name='X', username='monsterx_1'), group_chat_created=False, message_id=345, supergroup_chat_created=False, text='/status'), update_id=340750168), <telegram.ext._callbackcontext.CallbackContext object at 0x000001F6EE4B7E70>) kwargs={}
+2025-07-17 23:47:15 | INFO     | database.mongo_db:get_client:19 - Initializing MongoDB client...
+2025-07-17 23:47:17 | INFO     | bot.handlers:wrapper:133 - Outgoing message: stats_command args=(Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Monster', id=1764208280, last_name='X', type=<ChatType.PRIVATE>, username='monsterx_1'), date=datetime.datetime(2025, 7, 17, 18, 17, 14, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=6, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='Monster', id=1764208280, is_bot=False, language_code='en', last_name='X', username='monsterx_1'), group_chat_created=False, message_id=347, supergroup_chat_created=False, text='/stats'), update_id=340750169), <telegram.ext._callbackcontext.CallbackContext object at 0x000001F6EE4B7AF0>) kwargs={}
+2025-07-17 23:47:19 | INFO     | bot.handlers:wrapper:133 - Outgoing message: log_command args=(Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Monster', id=1764208280, last_name='X', type=<ChatType.PRIVATE>, username='monsterx_1'), date=datetime.datetime(2025, 7, 17, 18, 17, 17, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=4, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='Monster', id=1764208280, is_bot=False, language_code='en', last_name='X', username='monsterx_1'), group_chat_created=False, message_id=349, supergroup_chat_created=False, text='/log'), update_id=340750170), <telegram.ext._callbackcontext.CallbackContext object at 0x000001F6EE5DA510>) kwargs={}
+2025-07-17 23:47:48 | INFO     | scraper.engine:scrape_post:123 - Scraping post: https://www.1tamilmv.tube/index.php?/forums/topic/190441-my-eyes-are-full-of-you-2025-s01-ep-01-24-true-web-dl-1080p-720p-avc-tamil-telugu-hindi-aac-20-75gb-25gb-esub/
+2025-07-17 23:47:50 | INFO     | scraper.engine:_parse_links:109 - Successfully parsed 2 .torrent links from post.
+2025-07-17 23:47:50 | INFO     | scraper.engine:_parse_links:116 - Found quality tags: ['#HDRip', '#720p']
+2025-07-17 23:47:50 | INFO     | scraper.engine:_parse_links:118 - Found language tags: ['Hindi', 'Tamil', 'Telugu']
+2025-07-17 23:48:13 | INFO     | bot.handlers:wrapper:133 - Outgoing message: log_command args=(Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Monster', id=1764208280, last_name='X', type=<ChatType.PRIVATE>, username='monsterx_1'), date=datetime.datetime(2025, 7, 17, 18, 18, 11, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=4, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='Monster', id=1764208280, is_bot=False, language_code='en', last_name='X', username='monsterx_1'), group_chat_created=False, message_id=357, supergroup_chat_created=False, text='/log'), update_id=340750172), <telegram.ext._callbackcontext.CallbackContext object at 0x000001F6EE5DABA0>) kwargs={}
+2025-07-17 23:52:35 | INFO     | __main__:<module>:43 - Bot stopped manually.

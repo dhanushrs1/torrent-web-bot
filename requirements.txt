@@ -1,0 +1,16 @@
+
+# ==============================================================================
+# File: link-scraper-bot/requirements.txt
+# Description: Project dependencies. Install with: pip install -r requirements.txt
+# ==============================================================================
+
+python-telegram-bot[ext]
+pymongo
+motor
+httpx[http2]
+beautifulsoup4
+python-dotenv
+loguru
+apscheduler
+tenacity
+psutil
