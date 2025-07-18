@@ -9,8 +9,11 @@ def get_start_keyboard():
     """ Creates the keyboard with external channel links for the /start command. """
     keyboard = [
         [
-            InlineKeyboardButton("📢 Update Channel", url="https://t.me/your_update_channel_username"),
-            InlineKeyboardButton("🎬 Movie Channel", url="https://t.me/your_movie_channel_username")
+            InlineKeyboardButton("📢 Update Channel", url="https://t.me/filmyspotupdate"),
+            InlineKeyboardButton("🎬 Movie Channel", url="https://t.me/+o_VcAI8GRQ8zYzA9")
+        ],
+        [
+             InlineKeyboardButton("🛜 Movie feed Update 🛜", url="https://t.me/+o_VcAI8GRQ8zYzA9")
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
