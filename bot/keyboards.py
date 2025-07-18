@@ -13,7 +13,7 @@ def get_start_keyboard():
             InlineKeyboardButton("🎬 Movie Channel", url="https://t.me/+o_VcAI8GRQ8zYzA9")
         ],
         [
-             InlineKeyboardButton("🛜 Movie feed Update 🛜", url="https://t.me/+o_VcAI8GRQ8zYzA9")
+             InlineKeyboardButton("🛜 Movie feed Update 🛜", url="https://t.me/+kV83Xa2xaeE5N2Jl")
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
