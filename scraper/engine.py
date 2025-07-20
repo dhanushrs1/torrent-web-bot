@@ -135,41 +135,165 @@ class ScraperEngine:
     async def find_latest_posts(self) -> list[str]:
         """ 
         Scrapes the main page to find the latest post URLs using multiple,
-        resilient methods to ensure reliability.
+        resilient methods to ensure reliability. Updated with improved selectors
+        and debugging information.
         """
         logger.info(f"Checking for latest posts on {settings.TARGET_WEBSITE_URL}")
         html = await self._fetch_page(settings.TARGET_WEBSITE_URL)
         if not html:
+            logger.error("Failed to fetch main page HTML")
             return []
         
         soup = BeautifulSoup(html, 'html.parser')
         found_urls = set()
-
-        # --- Method 1: Primary Selector (Specific and modern) ---
-        selector1_links = soup.select('article.c-card h4.ipsDataItem_title a')
-        if selector1_links:
-            logger.info(f"Method 1 (Primary Selector) found {len(selector1_links)} links.")
-            for link in selector1_links:
-                if link.has_attr('href'):
-                    found_urls.add(link['href'])
         
-        # --- Method 2: Fallback Selector (Common alternative structure) ---
-        selector2_links = soup.select('div[data-row-id] h4.ipsDataItem_title > a')
-        if selector2_links:
-            logger.info(f"Method 2 (Fallback Selector) found {len(selector2_links)} links.")
-            for link in selector2_links:
-                if link.has_attr('href'):
-                    found_urls.add(link['href'])
+        # Log page structure for debugging
+        logger.debug(f"Page title: {soup.title.string if soup.title else 'No title found'}")
 
-        # --- Method 3: Generic Pattern Matching (Most reliable fallback) ---
+        # --- Method 1: Enhanced Primary Selectors ---
+        selectors_to_try = [
+            # Common forum post title selectors
+            'article.c-card h4.ipsDataItem_title a',
+            'div.ipsDataItem_main h4.ipsDataItem_title a',
+            'h4.ipsDataItem_title > a',
+            '.ipsDataItem_title a',
+            'article h4 a',
+            '.cTopicItem h4 a',
+            
+            # Alternative structures for different forum layouts
+            'div[data-row-id] .ipsDataItem_title a',
+            'div[data-topic-id] .ipsDataItem_title a',
+            '.cTopicList .ipsDataItem_title a',
+            
+            # Generic post title selectors
+            'article .ipsType_break a',
+            '.topic-title a',
+            '.forumtopic a'
+        ]
+
+        for i, selector in enumerate(selectors_to_try, 1):
+            try:
+                selector_links = soup.select(selector)
+                if selector_links:
+                    logger.info(f"Method 1.{i} (Selector: '{selector}') found {len(selector_links)} links.")
+                    for link in selector_links:
+                        href = link.get('href')
+                        if href:
+                            # Ensure we have full URLs
+                            if href.startswith('/'):
+                                # Extract base URL from settings
+                                base_url = settings.TARGET_WEBSITE_URL.rstrip('/')
+                                href = base_url + href
+                            found_urls.add(href)
+                            logger.debug(f"Added URL: {href}")
+                    if found_urls:
+                        break  # Stop at first successful selector
+                else:
+                    logger.debug(f"Selector '{selector}' found no links")
+            except Exception as e:
+                logger.warning(f"Error with selector '{selector}': {e}")
+                continue
+
+        # --- Method 2: Enhanced Pattern Matching ---
         if not found_urls:
-            logger.warning("Selectors found 0 posts. Using Method 3 (Generic Pattern Matching).")
-            pattern_links = soup.find_all('a', href=re.compile(r'/forums/topic/\d+'))
-            if pattern_links:
-                logger.info(f"Method 3 (Generic Pattern) found {len(pattern_links)} links.")
-                for link in pattern_links:
-                    found_urls.add(link['href'])
+            logger.warning("Primary selectors found 0 posts. Using enhanced pattern matching.")
+            
+            # Try multiple URL patterns that are common in forums
+            patterns_to_try = [
+                r'/forums/topic/\d+[^"\'>\s]*',  # Original pattern with optional parameters
+                r'/topic/\d+[^"\'>\s]*',
+                r'/threads/[^"\'>\s]+',
+                r'/showthread\.php\?[^"\'>\s]*',
+                r'/viewtopic\.php\?[^"\'>\s]*',
+                r'/t/[^"\'>\s]+',
+                r'/discussion/\d+[^"\'>\s]*'
+            ]
+            
+            for i, pattern in enumerate(patterns_to_try, 1):
+                try:
+                    pattern_links = soup.find_all('a', href=re.compile(pattern))
+                    if pattern_links:
+                        logger.info(f"Method 2.{i} (Pattern: '{pattern}') found {len(pattern_links)} links.")
+                        for link in pattern_links:
+                            href = link.get('href')
+                            if href:
+                                # Ensure we have full URLs
+                                if href.startswith('/'):
+                                    base_url = settings.TARGET_WEBSITE_URL.rstrip('/')
+                                    href = base_url + href
+                                found_urls.add(href)
+                                logger.debug(f"Added URL from pattern: {href}")
+                        if found_urls:
+                            break  # Stop at first successful pattern
+                except Exception as e:
+                    logger.warning(f"Error with pattern '{pattern}': {e}")
+                    continue
 
+        # --- Method 3: Last Resort - Find Any Links in Common Containers ---
+        if not found_urls:
+            logger.warning("Pattern matching found 0 posts. Using last resort method.")
+            
+            # Look for links in common forum containers
+            containers_to_check = [
+                'div[class*="topic"]',
+                'div[class*="post"]',
+                'div[class*="thread"]',
+                'article',
+                'li[class*="item"]',
+                'tr[class*="row"]'
+            ]
+            
+            for container_selector in containers_to_check:
+                try:
+                    containers = soup.select(container_selector)
+                    for container in containers:
+                        links = container.find_all('a', href=True)
+                        for link in links:
+                            href = link.get('href')
+                            # Filter for links that look like forum posts
+                            if href and any(pattern in href for pattern in ['/topic/', '/thread/', '/forums/', '/t/', '/discussion/']):
+                                if href.startswith('/'):
+                                    base_url = settings.TARGET_WEBSITE_URL.rstrip('/')
+                                    href = base_url + href
+                                found_urls.add(href)
+                                logger.debug(f"Added URL from container method: {href}")
+                    
+                    if found_urls:
+                        logger.info(f"Method 3 (Container: '{container_selector}') found {len(found_urls)} total unique links.")
+                        break
+                except Exception as e:
+                    logger.warning(f"Error checking container '{container_selector}': {e}")
+                    continue
+
+        # --- Final Processing and Sorting ---
         final_urls = list(found_urls)
-        logger.success(f"Found a total of {len(final_urls)} unique potential post links on the main page.")
-        return final_urls[:20]
+        
+        if not final_urls:
+            logger.error("All methods failed to find any post URLs. The website structure may have changed significantly.")
+            # Log some sample HTML for debugging
+            sample_html = str(soup)[:2000] + "..." if len(str(soup)) > 2000 else str(soup)
+            logger.debug(f"Sample HTML structure:\n{sample_html}")
+            return []
+        
+        # Sort URLs to potentially get the most recent first (assuming numeric IDs)
+        def extract_id(url):
+            # Try to extract numeric ID from URL for sorting
+            match = re.search(r'/(\d+)', url)
+            return int(match.group(1)) if match else 0
+        
+        try:
+            final_urls.sort(key=extract_id, reverse=True)
+            logger.info("URLs sorted by ID (newest first)")
+        except Exception as e:
+            logger.warning(f"Could not sort URLs by ID: {e}")
+        
+        logger.success(f"Found a total of {len(final_urls)} unique post links on the main page.")
+        
+        # Return top 20 most recent posts
+        result = final_urls[:20]
+        if result:
+            logger.info(f"Returning top {len(result)} posts:")
+            for i, url in enumerate(result[:5], 1):  # Log first 5 for verification
+                logger.info(f"  {i}. {url}")
+        
+        return result
