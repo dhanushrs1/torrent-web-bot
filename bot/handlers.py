@@ -1,6 +1,6 @@
 # ==============================================================================
 # File: link-scraper-bot/bot/handlers.py
-# Description: Defines all command, message, and callback query handlers. (COMPLETE)
+# Description: Defines all command, message, and callback query handlers. (FINAL FIX)
 # ==============================================================================
 
 from telegram import Update, ChatMember
@@ -92,14 +92,21 @@ async def test_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Testing scraper on: {escape_markdown_v2(url)}", parse_mode=ParseMode.MARKDOWN_V2)
     scraper = ScraperEngine()
     result = await scraper.scrape_post(url)
+    
+    # --- FIX: Unpack all four values from the advanced scraper ---
     if result and result[0]:
-        links, content_hash, quality_tags = result
-        await update.message.reply_text(
+        links, content_hash, quality_tags, metadata = result
+        
+        # Display the new, richer information in the test result
+        info_text = (
             f"Scraping successful\\! Found {len(links)} links\\.\n"
             f"*Content hash:* `{escape_markdown_v2(content_hash)}`\n"
-            f"*Quality tags:* {escape_markdown_v2(', '.join(quality_tags) if quality_tags else 'None')}",
-            parse_mode=ParseMode.MARKDOWN_V2
+            f"*Quality tags:* {escape_markdown_v2(', '.join(quality_tags) if quality_tags else 'None')}\n"
+            f"*Languages:* {escape_markdown_v2(', '.join(metadata.get('language_tags', [])) if metadata.get('language_tags') else 'None')}\n"
+            f"*Sizes:* {escape_markdown_v2(', '.join(metadata.get('file_sizes', [])) if metadata.get('file_sizes') else 'None')}"
         )
+        await update.message.reply_text(info_text, parse_mode=ParseMode.MARKDOWN_V2)
+
         post_title = "Test Scrape Results"
         await format_and_send_links(
             bot=context.bot,
@@ -107,7 +114,8 @@ async def test_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             post_title=post_title,
             links=links,
             status="new",
-            quality_tags=quality_tags
+            quality_tags=quality_tags,
+            metadata=metadata # Pass the new metadata to the message function
         )
     else:
         await update.message.reply_text("Scraping failed. No links found or an error occurred. Check logs.")
