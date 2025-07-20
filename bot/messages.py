@@ -44,9 +44,11 @@ async def format_and_send_links(bot: Bot, chat_id: int, post_title: str, links: 
     # Add metadata tags if they exist
     if metadata:
         if metadata.get('language_tags'):
-            all_tags.extend([f"\\#{lang}" for lang in metadata['language_tags']])
+            # FIX: Escape each language tag to prevent parsing errors
+            all_tags.extend([f"\\#{escape_markdown_v2(lang)}" for lang in metadata['language_tags']])
         if metadata.get('file_sizes'):
-            all_tags.extend([f"\\#{size}" for size in metadata['file_sizes']])
+            # FIX: Escape each file size tag to prevent parsing errors from characters like '.'
+            all_tags.extend([f"\\#{escape_markdown_v2(size)}" for size in metadata['file_sizes']])
 
     tags_string = " ".join(all_tags)
     
