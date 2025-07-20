@@ -1,6 +1,6 @@
 # ==============================================================================
 # File: link-scraper-bot/scraper/engine.py
-# Description: The core web scraping and parsing logic. (ADVANCED ENGINE)
+# Description: The core web scraping and parsing logic. (REDIRECT FIX)
 # ==============================================================================
 
 import httpx
@@ -19,10 +19,11 @@ class ScraperEngine:
         }
 
     async def _fetch_page(self, url: str) -> str | None:
-        """ Fetches HTML content from a URL using the configured proxy. """
+        """ Fetches HTML content from a URL, now with redirect following enabled. """
         try:
             transport = httpx.AsyncHTTPTransport(proxy=settings.PROXY_URL, retries=2)
-            async with httpx.AsyncClient(transport=transport, headers=self.headers, timeout=30.0) as client:
+            # --- FIX: Added follow_redirects=True to handle 301 errors ---
+            async with httpx.AsyncClient(transport=transport, headers=self.headers, timeout=30.0, follow_redirects=True) as client:
                 response = await client.get(url)
                 response.raise_for_status()
                 return response.text
@@ -73,18 +74,15 @@ class ScraperEngine:
                 links.append({'title': file_name, 'url': torrent_url})
                 lower_file_name = file_name.lower()
 
-                # --- Metadata and Quality Analysis ---
                 for tag, keywords in QUALITY_KEYWORDS.items():
                     if any(keyword in lower_file_name for keyword in keywords):
                         quality_tags.add(tag)
                 
-                # Extract languages (e.g., [Tam + Tel + Hin])
                 lang_match = re.search(r'\[([^\]]*)\]', file_name)
                 if lang_match:
                     langs = [lang.strip() for lang in lang_match.group(1).split('+')]
                     metadata['language_tags'].update(langs)
 
-                # Extract file sizes (e.g., 3.7GB or 450MB)
                 size_match = re.search(r'(\d+(\.\d+)?)(gb|mb)', lower_file_name)
                 if size_match:
                     metadata['file_sizes'].add(size_match.group(0).upper())
@@ -95,7 +93,6 @@ class ScraperEngine:
         if metadata['language_tags'] or metadata['file_sizes']:
             logger.info(f"Extracted metadata: {metadata}")
 
-        # Convert sets to lists for consistent return type
         final_metadata = {k: list(v) for k, v in metadata.items()}
         return links, content_hash, list(quality_tags), final_metadata
 
@@ -120,7 +117,6 @@ class ScraperEngine:
         soup = BeautifulSoup(html, 'html.parser')
         found_urls = set()
 
-        # --- Method 1: Primary Selector (Specific) ---
         selector1_links = soup.select('article.c-card h4.ipsDataItem_title a')
         if selector1_links:
             logger.info(f"Found {len(selector1_links)} links with primary selector.")
@@ -128,7 +124,6 @@ class ScraperEngine:
                 if link.has_attr('href'):
                     found_urls.add(link['href'])
         
-        # --- Method 2: Fallback Selector (Slightly less specific) ---
         selector2_links = soup.select('div[data-row-id] h4.ipsDataItem_title > a')
         if selector2_links:
             logger.info(f"Found {len(selector2_links)} links with fallback selector.")
@@ -136,10 +131,8 @@ class ScraperEngine:
                 if link.has_attr('href'):
                     found_urls.add(link['href'])
 
-        # --- Method 3: Generic Pattern Matching (Most reliable fallback) ---
         if not found_urls:
             logger.warning("Selectors found 0 posts. Trying generic pattern matching.")
-            # This looks for any link containing the typical forum topic structure.
             pattern_links = soup.find_all('a', href=re.compile(r'/forums/topic/\d+'))
             if pattern_links:
                 logger.info(f"Found {len(pattern_links)} links with generic pattern matching.")
@@ -148,4 +141,4 @@ class ScraperEngine:
 
         final_urls = list(found_urls)
         logger.success(f"Found a total of {len(final_urls)} unique potential post links on the main page.")
-        return final_urls[:20] # Increased limit to 20 to be safe
+        return final_urls[:20]
