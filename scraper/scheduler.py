@@ -1,6 +1,6 @@
 # ==============================================================================
 # File: link-scraper-bot/scraper/scheduler.py
-# Description: Manages the scheduled task of checking the website. (DEBUG FIX)
+# Description: Manages the scheduled task of checking the website. (FINAL FIX)
 # ==============================================================================
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -11,11 +11,6 @@ import re
 from .engine import ScraperEngine
 from database.mongo_db import Database
 from bot.messages import format_and_send_links
-
-def escape_markdown_v2(text: str) -> str:
-    text = str(text)
-    escape_chars = r'_*[]()~`>#+-=|{}.!'
-    return re.sub(f'([{re.escape(escape_chars)}])', r'\\\1', text)
 
 async def check_website_job(bot: Bot):
     """ The core job that runs on a schedule. Now with detailed logging. """
@@ -29,13 +24,11 @@ async def check_website_job(bot: Bot):
     scraper = ScraperEngine()
     latest_post_urls = await scraper.find_latest_posts()
 
-    # --- NEW: Log exactly what was found on the main page ---
     if not latest_post_urls:
-        logger.warning("SCHEDULER: Found 0 post URLs on the main page. The scraper's `find_latest_posts` method might need an update if this persists.")
+        logger.warning("SCHEDULER: Found 0 post URLs on the main page.")
         return
     else:
         logger.info(f"SCHEDULER: Found {len(latest_post_urls)} post URLs on the main page.")
-    # --- END NEW ---
 
     for post_url in reversed(latest_post_urls):
         try:
@@ -46,7 +39,8 @@ async def check_website_job(bot: Bot):
                 logger.warning(f"SCHEDULER: No links found for {post_url}, skipping.")
                 continue
             
-            links, new_hash, quality_tags = result
+            # --- FIX: Unpack all four values ---
+            links, new_hash, quality_tags, metadata = result
             
             post_title_fallback = post_url.split('/')[-2].replace('-', ' ').title()
             post_title = links[0]['title'].split(' (')[0] if links else post_title_fallback
@@ -63,7 +57,6 @@ async def check_website_job(bot: Bot):
                     status = "updated"
                     logger.success(f"SCHEDULER: Found UPDATED post: {post_url}")
                 else:
-                    # This is the normal case for posts already processed
                     logger.info(f"SCHEDULER: Post is unchanged. Skipping: {post_url}")
                     continue
             
@@ -71,9 +64,10 @@ async def check_website_job(bot: Bot):
                 for channel in all_channels:
                     channel_id = channel['channel_id']
                     logger.info(f"SCHEDULER: Sending links for '{post_title}' to channel ID: {channel_id}")
-                    await format_and_send_links(bot, channel_id, post_title, links, status, quality_tags)
+                    await format_and_send_links(bot, channel_id, post_title, links, status, quality_tags, metadata)
                 
-                await Database.add_processed_post(post_url, new_hash)
+                # Pass the number of links to be stored in the database for stats
+                await Database.add_processed_post(post_url, new_hash, len(links))
 
         except Exception as e:
             logger.error(f"SCHEDULER: An error occurred while processing post {post_url}: {e}", exc_info=True)
