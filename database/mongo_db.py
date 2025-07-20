@@ -1,6 +1,6 @@
 # ==============================================================================
 # File: link-scraper-bot/database/mongo_db.py
-# Description: Handles all interactions with the MongoDB database. (PREFIX UPDATE)
+# Description: Handles all interactions with the MongoDB database. (STATS UPDATE)
 # ==============================================================================
 
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -25,7 +25,6 @@ class Database:
         return cls.get_client().link_scraper_bot
 
     # --- Channel Methods ---
-
     @classmethod
     async def add_channel(cls, channel_id: int, channel_name: str):
         db = await cls.get_db()
@@ -51,7 +50,6 @@ class Database:
         if result.modified_count:
             logger.info(f"Set channel {channel_id} as the new main channel.")
             return True
-        logger.warning(f"Could not set channel {channel_id} as main. It may not exist.")
         return False
 
     @classmethod
@@ -60,18 +58,20 @@ class Database:
         return await db.channels.find({}).to_list(length=100)
 
     # --- Post Methods ---
-
     @classmethod
     async def is_url_processed(cls, post_url: str) -> bool:
         db = await cls.get_db()
         return await db.posts.count_documents({'post_url': post_url}) > 0
 
     @classmethod
-    async def add_processed_post(cls, post_url: str, content_hash: str):
+    async def add_processed_post(cls, post_url: str, content_hash: str, link_count: int):
         db = await cls.get_db()
         await db.posts.update_one(
             {'post_url': post_url},
-            {'$set': {'content_hash': content_hash, 'processed_at': datetime.now(timezone.utc)}},
+            {
+                '$set': {'content_hash': content_hash, 'processed_at': datetime.now(timezone.utc)},
+                '$inc': {'link_count': link_count} # Increment link count
+            },
             upsert=True
         )
         logger.info(f"Added/Updated post in DB: {post_url}")
@@ -82,8 +82,15 @@ class Database:
         post = await db.posts.find_one({'post_url': post_url})
         return post.get('content_hash') if post else None
 
-    # --- Prefix Setting Methods (NEW) ---
+    @classmethod
+    async def get_total_links(cls) -> int:
+        """ Calculates the total number of links processed. """
+        db = await cls.get_db()
+        pipeline = [{"$group": {"_id": None, "total": {"$sum": "$link_count"}}}]
+        result = await db.posts.aggregate(pipeline).to_list(length=1)
+        return result[0]['total'] if result else 0
 
+    # --- Prefix Setting Methods ---
     @classmethod
     async def _get_settings(cls):
         db = await cls.get_db()
