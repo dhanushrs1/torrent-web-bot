@@ -1,6 +1,6 @@
 # ==============================================================================
 # File: link-scraper-bot/scraper/scheduler.py
-# Description: Manages the scheduled task of checking the website. (FIXED)
+# Description: Manages the scheduled task of checking the website. (DEBUG FIX)
 # ==============================================================================
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -13,34 +13,41 @@ from database.mongo_db import Database
 from bot.messages import format_and_send_links
 
 def escape_markdown_v2(text: str) -> str:
-    """Escapes text for Telegram's MarkdownV2 parse mode."""
     text = str(text)
     escape_chars = r'_*[]()~`>#+-=|{}.!'
     return re.sub(f'([{re.escape(escape_chars)}])', r'\\\1', text)
 
 async def check_website_job(bot: Bot):
-    """ The core job that runs on a schedule. Now sends to ALL approved channels. """
-    logger.info("--- Starting scheduled website check ---")
+    """ The core job that runs on a schedule. Now with detailed logging. """
+    logger.info("--- Starting Automatic Website Check ---")
     
-    # Get ALL approved channels instead of just the main one.
     all_channels = await Database.get_all_channels()
     if not all_channels:
-        logger.warning("No approved channels configured. Skipping scrape job.")
+        logger.warning("SCHEDULER: No approved channels configured. Skipping job.")
         return
 
     scraper = ScraperEngine()
     latest_post_urls = await scraper.find_latest_posts()
 
-    for post_url in reversed(latest_post_urls): # Process oldest first
+    # --- NEW: Log exactly what was found on the main page ---
+    if not latest_post_urls:
+        logger.warning("SCHEDULER: Found 0 post URLs on the main page. The scraper's `find_latest_posts` method might need an update if this persists.")
+        return
+    else:
+        logger.info(f"SCHEDULER: Found {len(latest_post_urls)} post URLs on the main page.")
+    # --- END NEW ---
+
+    for post_url in reversed(latest_post_urls):
         try:
+            logger.info(f"SCHEDULER: Processing URL -> {post_url}")
             result = await scraper.scrape_post(post_url)
+            
             if not result or not result[0]:
-                logger.warning(f"No links found for {post_url}, skipping.")
+                logger.warning(f"SCHEDULER: No links found for {post_url}, skipping.")
                 continue
             
-            links, new_hash = result
+            links, new_hash, quality_tags = result
             
-            # Use the first part of the URL path as a title fallback
             post_title_fallback = post_url.split('/')[-2].replace('-', ' ').title()
             post_title = links[0]['title'].split(' (')[0] if links else post_title_fallback
             
@@ -49,36 +56,34 @@ async def check_website_job(bot: Bot):
 
             if not is_processed:
                 status = "new"
-                logger.info(f"Found new post: {post_url}")
+                logger.success(f"SCHEDULER: Found NEW post: {post_url}")
             else:
                 old_hash = await Database.get_post_hash(post_url)
                 if old_hash != new_hash:
                     status = "updated"
-                    logger.info(f"Found updated post: {post_url}")
+                    logger.success(f"SCHEDULER: Found UPDATED post: {post_url}")
                 else:
-                    logger.info(f"Post {post_url} is unchanged. Skipping.")
+                    # This is the normal case for posts already processed
+                    logger.info(f"SCHEDULER: Post is unchanged. Skipping: {post_url}")
                     continue
             
-            # If the post is new or updated, loop through all channels and send the links.
             if status:
                 for channel in all_channels:
                     channel_id = channel['channel_id']
-                    logger.info(f"Sending links for '{post_title}' to channel ID: {channel_id}")
-                    await format_and_send_links(bot, channel_id, post_title, links, status)
+                    logger.info(f"SCHEDULER: Sending links for '{post_title}' to channel ID: {channel_id}")
+                    await format_and_send_links(bot, channel_id, post_title, links, status, quality_tags)
                 
-                # Mark the post as processed once it has been sent to all channels.
                 await Database.add_processed_post(post_url, new_hash)
 
         except Exception as e:
-            logger.error(f"Error processing post {post_url}: {e}", exc_info=True)
+            logger.error(f"SCHEDULER: An error occurred while processing post {post_url}: {e}", exc_info=True)
 
-    logger.info("--- Finished scheduled website check ---")
+    logger.info("--- Finished Automatic Website Check ---")
 
 
 def setup_scheduler(bot: Bot):
     """ Initializes and starts the job scheduler. """
     scheduler = AsyncIOScheduler(timezone="UTC")
-    # Schedule the job to run every 15 minutes. Adjust as needed.
-    scheduler.add_job(check_website_job, 'interval', minutes=15, args=[bot])
+    scheduler.add_job(check_website_job, 'interval', minutes=15, args=[bot], id="main_check_job")
     scheduler.start()
     logger.info("Scheduler started. Website will be checked every 15 minutes.")
