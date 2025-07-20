@@ -123,3 +123,13 @@ class Database:
     async def is_prefix_enabled(cls) -> bool:
         settings = await cls._get_settings()
         return settings.get('enabled', False) if settings else False
+        
+
+async def was_recently_processed(self, url: str, hours: int = 2) -> bool:
+    """Check if URL was processed in the last N hours"""
+    recent_time = datetime.utcnow() - timedelta(hours=hours)
+    result = await self.processed_posts.find_one({
+        "url": url,
+        "processed_at": {"$gte": recent_time}
+    })
+    return result is not None
