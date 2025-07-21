@@ -13,7 +13,7 @@ from core.config import settings
 # --- Database Class ---
 class Database:
     """ A singleton class for all database operations """
-    client: AsyncIOMotorClient = None
+    client: AsyncIomMotorClient = None
     db = None
 
     @staticmethod
@@ -134,6 +134,3 @@ class Database:
         if Database.client:
             Database.client.close()
             logger.info("MongoDB connection has been closed.")
-
-
-}
