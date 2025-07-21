@@ -25,13 +25,13 @@ class Database:
         if Database.client and Database.db:
             return
 
-        if not settings.MONGO_URI:
-            logger.critical("❌ MONGO_URI is not set in the environment or .env file. Exiting.")
-            raise ValueError("MONGO_URI is not configured.")
+        if not settings.MONGO_DB_URI:
+            logger.critical("❌ MONGO_DB_URI is not set in the environment or .env file. Exiting.")
+            raise ValueError("MONGO_DB_URI is not configured.")
 
         logger.info(f"🔌 Connecting to MongoDB database: {settings.MONGO_DB_NAME}")
         try:
-            Database.client = AsyncIOMotorClient(settings.MONGO_URI)
+            Database.client = AsyncIOMotorClient(settings.MONGO_DB_URI)
             # The ismaster command is cheap and does not require auth.
             await Database.client.admin.command('ismaster')
             Database.db = Database.client[settings.MONGO_DB_NAME]
@@ -134,3 +134,6 @@ class Database:
         if Database.client:
             Database.client.close()
             logger.info("MongoDB connection has been closed.")
+
+
+}
