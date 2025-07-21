@@ -35,14 +35,21 @@ class ScraperEngine:
         Fetches HTML content from a URL with improved error handling and proxy support.
         """
         try:
-            # Configure transport with proxy and retries
-            transport_args = {'retries': 3}
+            # Configure transport with retries
+            transport = httpx.AsyncHTTPTransport(retries=3)
+
+            # Configure client with proxy support
+            proxies = None
             if settings.PROXY_URL:
-                transport_args['proxy'] = settings.PROXY_URL
-            
-            transport = httpx.AsyncHTTPTransport(**transport_args)
-            
-            async with httpx.AsyncClient(transport=transport, headers=self.headers, timeout=45.0, follow_redirects=True) as client:
+                proxies = {"all://": settings.PROXY_URL}
+
+            async with httpx.AsyncClient(
+                transport=transport,
+                proxies=proxies,
+                headers=self.headers,
+                timeout=45.0,
+                follow_redirects=True
+            ) as client:
                 response = await client.get(url)
                 response.raise_for_status()
                 logger.info(f"Successfully fetched {url}")
@@ -308,3 +315,5 @@ class ScraperEngine:
                 logger.info(f"  {i}. [{date_str}] {post['title'][:60]}...")
         
         return result_urls
+
+}
